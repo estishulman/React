@@ -1,5 +1,9 @@
 import { Box, Button, Modal, Stack, TextField, Typography } from "@mui/material"
+<<<<<<< HEAD
 import React, { FormEvent, useContext, useState } from "react";
+=======
+import React, { FormEvent, useContext, useRef, useState } from "react";
+>>>>>>> 28e6f6ec79d9a1f21e1648c55f8236295201e0c6
 import { UsersContext } from "./context/UserProvider";
 import axios from "axios";
 const style = {
@@ -30,6 +34,10 @@ const Registratio = () => {
         throw new Error("UserContext must be used within a UserProvider");
     }
     const {  dispatch } = context;
+<<<<<<< HEAD
+=======
+    const[setErrorMessage]=useState('')
+>>>>>>> 28e6f6ec79d9a1f21e1648c55f8236295201e0c6
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [event.target.name]: event.target.value })
     };
@@ -67,12 +75,69 @@ const Registratio = () => {
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                         Login
                     </Typography>
+<<<<<<< HEAD
                     <TextField  name="email" label="userEmail" type="email" value={formData.email} onChange={handleChange} fullWidth margin="normal"/>
                     <TextField name="password" label="password" type="password" value={formData.password} onChange={handleChange} fullWidth margin="normal"/>
                     <TextField name="firstName"label="firstName"type="firstName" value={formData.firstName}onChange={handleChange}fullWidth margin="normal" />
                     <TextField name="lastName"label="lastName"type="lastName"value={formData.lastName} onChange={handleChange}fullWidth margin="normal"/>
                     <TextField name="phone"label="phone"type="phone" value={formData.phone} onChange={handleChange}fullWidth margin="normal"/>
                     <TextField name="address"label="address" type="address" value={formData.address}onChange={handleChange}fullWidth margin="normal" />
+=======
+                    <TextField
+                        name="email"
+                        label="userEmail"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        fullWidth
+                        margin="normal"
+                    />
+                    <TextField
+                        name="password"
+                        label="password"
+                        type="password"
+                        value={formData.password}
+                        onChange={handleChange}
+                        fullWidth
+                        margin="normal"
+                    />
+                    <TextField
+                        name="firstName"
+                        label="firstName"
+                        type="firstName"
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        fullWidth
+                        margin="normal"
+                    />
+                    <TextField
+                        name="lastName"
+                        label="lastName"
+                        type="lastName"
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        fullWidth
+                        margin="normal"
+                    />
+                    <TextField
+                        name="phone"
+                        label="phone"
+                        type="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        fullWidth
+                        margin="normal"
+                    />
+                    <TextField
+                        name="address"
+                        label="address"
+                        type="address"
+                        value={formData.address}
+                        onChange={handleChange}
+                        fullWidth
+                        margin="normal"
+                    />
+>>>>>>> 28e6f6ec79d9a1f21e1648c55f8236295201e0c6
                     <Button type="submit" variant="contained">save</Button>
                 </form>
             </Box>

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { useContext } from 'react';
+=======
+import React, { useContext } from 'react';
+>>>>>>> 28e6f6ec79d9a1f21e1648c55f8236295201e0c6
 import { Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';

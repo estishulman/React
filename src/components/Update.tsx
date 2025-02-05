@@ -68,11 +68,59 @@ const Update = () => {
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                         Update
                     </Typography>
+<<<<<<< HEAD
                     <TextField name="firstName"label="FirstName"type="text" value={formData.firstName} onChange={handleChange}fullWidth margin="normal"/>
                     <TextField name="lastName"label="LastName" type="text"value={formData.lastName}onChange={handleChange}fullWidth margin="normal"/>
                     <TextField name="email"label="Email"type="email"value={formData.email}onChange={handleChange}fullWidth margin="normal"/>
                     <TextField name="address"label="Address"type="text"value={formData.address}onChange={handleChange}fullWidth margin="normal" />
                     <TextField name="phone"label="Phone"type="phone"value={formData.phone}onChange={handleChange}fullWidth margin="normal" />
+=======
+                    <TextField
+                        name="firstName"
+                        label="FirstName"
+                        type="text"
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        fullWidth
+                        margin="normal"
+                    />
+                    <TextField
+                        name="lastName"
+                        label="LastName"
+                        type="text"
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        fullWidth
+                        margin="normal"
+                    />
+                    <TextField
+                        name="email"
+                        label="Email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        fullWidth
+                        margin="normal"
+                    />
+                    <TextField
+                        name="address"
+                        label="Address"
+                        type="text"
+                        value={formData.address}
+                        onChange={handleChange}
+                        fullWidth
+                        margin="normal"
+                    />
+                    <TextField
+                        name="phone"
+                        label="Phone"
+                        type="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        fullWidth
+                        margin="normal"
+                    />
+>>>>>>> 28e6f6ec79d9a1f21e1648c55f8236295201e0c6
                     <Button type="submit" variant="contained">Continue</Button>
                 </form>
             </Box>

@@ -21,7 +21,11 @@ const schema = yup.object().shape({
 const AddRecipe = () => {
     const useUserId = () => {
         const context = useContext(UsersContext);
+<<<<<<< HEAD
         return context?.state.id;
+=======
+        return context?.state.id; // החזרת ה-user-id
+>>>>>>> 28e6f6ec79d9a1f21e1648c55f8236295201e0c6
     };
     const dispatch = useDispatch<AddDispatch>();
     const { control, handleSubmit, formState: { errors }, setValue, watch } = useForm<FormDataType>({

@@ -15,7 +15,11 @@ export type Recipe = {
   ingredients: string[],
   authorId: string
 }
+<<<<<<< HEAD
 const renderRow = (props: ListChildComponentProps, handleClick: (index: number) => void) => {
+=======
+const renderRow = (props: ListChildComponentProps, handleClick: (index: number) => void, recipes: Recipe[]) => {
+>>>>>>> 28e6f6ec79d9a1f21e1648c55f8236295201e0c6
   const { index, style, data } = props;
   return (
     <ListItem style={style} key={index} component="div" disablePadding>
@@ -39,16 +43,28 @@ const Recipes = () => {
   }, [dispatch]);
   return (
     <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
+<<<<<<< HEAD
       {selectedRecipeIndex !== null && (
         <div style={{
           marginRight: '30px', 
+=======
+      {/* קומפוננטת פירוט המתכון ממוקמת כאן */}
+      {selectedRecipeIndex !== null && (
+        <div style={{
+          marginRight: '30px', // רווח נוסף בין הרשימה לפירוט
+>>>>>>> 28e6f6ec79d9a1f21e1648c55f8236295201e0c6
           backgroundColor: 'white',
           border: '1px solid gray',
           borderRadius: '8px',
           padding: '20px',
           zIndex: 1000,
+<<<<<<< HEAD
           width: '300px', 
           height: '400px', 
+=======
+          width: '300px', // רוחב הקומפוננטה לפי הצורך
+          height: '400px', // גובה הקומפוננטה לפי הצורך
+>>>>>>> 28e6f6ec79d9a1f21e1648c55f8236295201e0c6
           position: 'relative',
           overflowY: 'auto'
         }}>
@@ -77,7 +93,11 @@ const Recipes = () => {
           overscanCount={5}
           itemData={recipes}
         >
+<<<<<<< HEAD
           {(props) => renderRow(props, handleClick)}
+=======
+          {(props) => renderRow(props, handleClick, recipes)}
+>>>>>>> 28e6f6ec79d9a1f21e1648c55f8236295201e0c6
         </FixedSizeList>
       </Box>
       {recipes.length === 0 && <p>Loading recipes...</p>}
