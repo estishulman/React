@@ -4,29 +4,27 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { AddDispatch } from './redux/store';
 import { useDispatch } from 'react-redux';
-import { TextField, Button, Box, IconButton } from '@mui/material';
+import { TextField, Button, Box, IconButton, Typography } from '@mui/material';
 import { Add as AddIcon } from '@mui/icons-material'; // אייקון פלוס
 import { addRecipe } from './redux/recipeSlice';
 import { UsersContext } from './context/UserProvider';
+
 export interface FormDataType {
     title: string;
     ingredients: string[];
     description?: string;
 }
+
 const schema = yup.object().shape({
     title: yup.string().matches(/^[A-Za-z\s]+$/, 'הכותרת חייבת להיות כתובה באנגלית בלבד').required('הכותרת היא דרישה'),
     ingredients: yup.array().of(yup.string().required('Each ingredient must be entered')).required('The ingredients must be entered'),
     description: yup.string()
 });
+
 const AddRecipe = () => {
-    const useUserId = () => {
-        const context = useContext(UsersContext);
-<<<<<<< HEAD
-        return context?.state.id;
-=======
-        return context?.state.id; // החזרת ה-user-id
->>>>>>> 28e6f6ec79d9a1f21e1648c55f8236295201e0c6
-    };
+    const context = useContext(UsersContext);
+    const userId = context?.state.id; // החזרת ה-user-id
+
     const dispatch = useDispatch<AddDispatch>();
     const { control, handleSubmit, formState: { errors }, setValue, watch } = useForm<FormDataType>({
         defaultValues: {
@@ -36,7 +34,7 @@ const AddRecipe = () => {
         },
         resolver: yupResolver(schema)
     });
-    const userId = useUserId();
+
     const onSubmit = (data: FormDataType) => {
         if (userId !== undefined) {
             console.log(data.ingredients);
@@ -44,15 +42,17 @@ const AddRecipe = () => {
             alert('Recipe added successfully');
             setValue("title", '');
             setValue("description", '');
-            setValue("ingredients", [''])
+            setValue("ingredients", ['']);
         } else {
             alert("User ID is undefined");
         }
     };
+
     const addProductField = () => {
         const currentProducts = watch("ingredients");
         setValue("ingredients", [...currentProducts, '']); // הוספת שדה מוצר חדש
     };
+
     return (
         <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
             <Controller
@@ -66,7 +66,9 @@ const AddRecipe = () => {
                         fullWidth
                         error={!!errors.title}
                         helperText={errors.title ? errors.title.message : ''}
-                    />)}/>
+                    />
+                )}
+            />
             <Controller
                 name="description"
                 control={control}
@@ -76,7 +78,9 @@ const AddRecipe = () => {
                         label="תיאור"
                         variant="outlined"
                         fullWidth
-                    />)} />
+                    />
+                )}
+            />
             <Box>
                 <label>מוצרים:</label>
                 {watch("ingredients").map((_, index) => (
@@ -90,14 +94,23 @@ const AddRecipe = () => {
                                 label={`מוצר ${index + 1}`}
                                 variant="outlined"
                                 fullWidth
-                                sx={{ mb: 1 }}/>)}/>))}
+                                sx={{ mb: 1 }}
+                                error={!!errors.ingredients?.[index]}
+                                helperText={errors.ingredients?.[index]?.message || ''}
+                            />
+                        )}
+                    />
+                ))}
                 <IconButton onClick={addProductField} color="primary">
                     <AddIcon />
                 </IconButton>
             </Box>
-            {errors.ingredients && <span>{errors.ingredients.message}</span>}
+            {errors.ingredients && <Typography color="error">{errors.ingredients.message}</Typography>}
             <Button type="submit" variant="contained" color="primary">
                 Submit
             </Button>
-        </Box>);};
+        </Box>
+    );
+};
+
 export default AddRecipe;
